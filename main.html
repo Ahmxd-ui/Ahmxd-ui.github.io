@@ -32,18 +32,21 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
             text-align: center;
+            animation: fadeIn 1s ease-out;
         }
 
         h1 {
             font-size: 3em;
             color: #667eea;
             margin-bottom: 10px;
+            animation: slideInDown 0.8s ease-out;
         }
 
         .subtitle {
             font-size: 1.3em;
             color: #666;
             margin-bottom: 20px;
+            animation: slideInUp 0.8s ease-out;
         }
 
         .bio {
@@ -52,6 +55,7 @@
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
+            animation: fadeIn 1.2s ease-out;
         }
 
         section {
@@ -60,7 +64,13 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out backwards;
         }
+
+        section:nth-of-type(1) { animation-delay: 0.2s; }
+        section:nth-of-type(2) { animation-delay: 0.3s; }
+        section:nth-of-type(3) { animation-delay: 0.4s; }
+        section:nth-of-type(4) { animation-delay: 0.5s; }
 
         h2 {
             color: #667eea;
@@ -83,10 +93,15 @@
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid #e0e0e0;
+            animation: fadeInUp 0.6s ease-out backwards;
         }
 
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         }
 
@@ -128,6 +143,21 @@
             padding: 10px 20px;
             border-radius: 25px;
             font-weight: 500;
+            animation: bounceIn 0.6s ease-out backwards;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:nth-child(1) { animation-delay: 0.1s; }
+        .skill-tag:nth-child(2) { animation-delay: 0.15s; }
+        .skill-tag:nth-child(3) { animation-delay: 0.2s; }
+        .skill-tag:nth-child(4) { animation-delay: 0.25s; }
+        .skill-tag:nth-child(5) { animation-delay: 0.3s; }
+        .skill-tag:nth-child(6) { animation-delay: 0.35s; }
+        .skill-tag:nth-child(7) { animation-delay: 0.4s; }
+        .skill-tag:nth-child(8) { animation-delay: 0.45s; }
+
+        .skill-tag:hover {
+            transform: scale(1.1) rotate(2deg);
         }
 
         .contact-links {
@@ -144,12 +174,91 @@
             padding: 12px 30px;
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: 500;
+            animation: pulse 2s infinite;
         }
 
         .contact-btn:hover {
             background: #764ba2;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            animation: none;
+        }
+
+        .email-text {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         footer {
@@ -217,19 +326,19 @@
                 <!-- Example project cards - replace with your actual projects -->
                 <div class="project-card">
                     <h3>Project 1</h3>
-                    <p>First AI project.</p>
+                    <p>First project not ready yet.</p>
                     <a href="#" class="project-link">View Project</a>
                 </div>
 
                 <div class="project-card">
                     <h3>Project 2</h3>
-                    <p>Second AI project.</p>
+                    <p>Second project not ready yet.</p>
                     <a href="#" class="project-link">View Project</a>
                 </div>
 
                 <div class="project-card">
                     <h3>Project 3</h3>
-                    <p>Third AI project.</p>
+                    <p>Third project not ready yet.</p>
                     <a href="#" class="project-link">View Project</a>
                 </div>
             </div>
@@ -240,8 +349,10 @@
             <p style="text-align: center; margin-bottom: 20px;">
                 Let's connect! Feel free to reach out for collaboration or opportunities.
             </p>
+            <p class="email-text" style="text-align: center;">
+                📧 haydarahmad203@gmail.com
+            </p>
             <div class="contact-links">
-                <a href="mailto:haydarahmad203@gmail.com" class="contact-btn">Email</a>
                 <a href="https://github.com/Ahmxd-ui" class="contact-btn" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/ahmad-haydar1" class="contact-btn" target="_blank">LinkedIn</a>
             </div>
