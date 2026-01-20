@@ -14,8 +14,9 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #e0e0e0; /* Light text for dark mode */
+            /* Dark Tech Gradient Background */
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             min-height: 100vh;
         }
 
@@ -26,10 +27,13 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
+            /* Glassmorphism Dark Effect */
+            background: rgba(30, 30, 40, 0.7);
+            backdrop-filter: blur(10px);
             padding: 60px 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
             text-align: center;
             animation: fadeIn 1s ease-out;
@@ -37,21 +41,24 @@
 
         h1 {
             font-size: 3em;
-            color: #667eea;
+            /* Neon Blue Gradient Text */
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
             animation: slideInDown 0.8s ease-out;
         }
 
         .subtitle {
             font-size: 1.3em;
-            color: #666;
+            color: #a0a0a0;
             margin-bottom: 20px;
             animation: slideInUp 0.8s ease-out;
         }
 
         .bio {
             font-size: 1.1em;
-            color: #555;
+            color: #d0d0d0;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
@@ -59,10 +66,12 @@
         }
 
         section {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 30, 40, 0.7);
+            backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
             animation: fadeInUp 0.8s ease-out backwards;
         }
@@ -73,11 +82,12 @@
         section:nth-of-type(4) { animation-delay: 0.5s; }
 
         h2 {
-            color: #667eea;
+            color: #00c6ff;
             font-size: 2em;
             margin-bottom: 25px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 2px solid #00c6ff;
             padding-bottom: 10px;
+            display: inline-block;
         }
 
         .projects-grid {
@@ -88,46 +98,45 @@
         }
 
         .project-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: rgba(255, 255, 255, 0.05);
             padding: 25px;
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             animation: fadeInUp 0.6s ease-out backwards;
         }
 
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-
         .project-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 198, 255, 0.2);
+            border-color: #00c6ff;
         }
 
         .project-card h3 {
-            color: #764ba2;
+            color: #fff;
             margin-bottom: 10px;
             font-size: 1.4em;
         }
 
         .project-card p {
-            color: #555;
+            color: #b0b0b0;
             margin-bottom: 15px;
         }
 
         .project-link {
             display: inline-block;
-            background: #667eea;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
             color: white;
             padding: 8px 20px;
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: bold;
         }
 
         .project-link:hover {
-            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 198, 255, 0.4);
         }
 
         .skills {
@@ -138,15 +147,23 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 20px;
+            background: rgba(0, 198, 255, 0.1);
+            color: #00c6ff;
+            border: 1px solid #00c6ff;
+            padding: 8px 20px;
             border-radius: 25px;
             font-weight: 500;
             animation: bounceIn 0.6s ease-out backwards;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
+        .skill-tag:hover {
+            background: #00c6ff;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Staggered animation for skills */
         .skill-tag:nth-child(1) { animation-delay: 0.1s; }
         .skill-tag:nth-child(2) { animation-delay: 0.15s; }
         .skill-tag:nth-child(3) { animation-delay: 0.2s; }
@@ -155,10 +172,6 @@
         .skill-tag:nth-child(6) { animation-delay: 0.35s; }
         .skill-tag:nth-child(7) { animation-delay: 0.4s; }
         .skill-tag:nth-child(8) { animation-delay: 0.45s; }
-
-        .skill-tag:hover {
-            transform: scale(1.1) rotate(2deg);
-        }
 
         .contact-links {
             display: flex;
@@ -169,117 +182,55 @@
         }
 
         .contact-btn {
-            background: #667eea;
-            color: white;
+            background: transparent;
+            color: #fff;
             padding: 12px 30px;
             text-decoration: none;
             border-radius: 5px;
             transition: all 0.3s ease;
             font-weight: 500;
-            animation: pulse 2s infinite;
+            border: 2px solid #00c6ff;
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-btn:hover {
-            background: #764ba2;
+            background: #00c6ff;
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.6);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-            animation: none;
         }
 
         .email-text {
             font-size: 1.2em;
-            color: #667eea;
+            color: #00c6ff;
             font-weight: 500;
             margin-bottom: 20px;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
+        /* Animations remain the same */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes bounceIn { 
+            0% { opacity: 0; transform: scale(0.3); } 
+            50% { opacity: 1; transform: scale(1.05); } 
+            70% { transform: scale(0.9); } 
+            100% { transform: scale(1); } 
         }
 
         footer {
             text-align: center;
-            color: white;
+            color: #888;
             padding: 20px;
             margin-top: 30px;
+            font-size: 0.9em;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            header, section {
-                padding: 30px 20px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 2em; }
+            header, section { padding: 30px 20px; }
+            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -289,9 +240,9 @@
             <h1>Ahmad Haydar</h1>
             <p class="subtitle">Junior AI Engineer</p>
             <p class="bio">
-                Passionate about artificial intelligence and machine learning. 
-                Leveraging my computer engineering background to build intelligent systems 
-                and solve real-world problems through AI innovation.
+                Passionate about Artificial Intelligence and Machine Learning. 
+                Leveraging my background in Computer Engineering to build intelligent, 
+                scalable systems and solve real-world problems through data-driven innovation.
             </p>
         </header>
 
@@ -299,10 +250,9 @@
             <h2>About Me</h2>
             <p>
                 As a Computer and Communications Network Engineering (CCNE) graduate, 
-                I'm excited to transition into the field of Artificial Intelligence. 
-                My engineering background provides me with a strong foundation in problem-solving, 
-                system design, and technical implementation. I'm continuously learning and building 
-                projects to develop my expertise in machine learning, deep learning, and AI applications.
+                I'm actively transitioning into the field of AI Engineering. 
+                My background provides a strong foundation in system architecture and technical logic, 
+                which I now apply to Machine Learning, Anomaly Detection, and Predictive Modeling.
             </p>
         </section>
 
@@ -310,46 +260,44 @@
             <h2>Skills</h2>
             <div class="skills">
                 <span class="skill-tag">Python</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Deep Learning</span>
-                <span class="skill-tag">Data Analysis</span>
-                <span class="skill-tag">Neural Networks</span>
+                <span class="skill-tag">Scikit-Learn</span>
+                <span class="skill-tag">Pandas / NumPy</span>
+                <span class="skill-tag">Unsupervised Learning</span>
+                <span class="skill-tag">Random Forest</span>
                 <span class="skill-tag">Computer Vision</span>
-                <span class="skill-tag">NLP</span>
-                <span class="skill-tag">TensorFlow/PyTorch</span>
+                <span class="skill-tag">Git / GitHub</span>
+                <span class="skill-tag">Deep Learning</span>
             </div>
         </section>
 
         <section>
             <h2>Projects</h2>
             <div class="projects-grid">
-                <!-- Example project cards - replace with your actual projects -->
-               <div class="project-card">
-    <h3>Titanic Survival Prediction 🚢</h3>
-    <p>
-        Built a production-ready ML pipeline achieving <strong>83.3% accuracy</strong>. 
-        Features automated data cleaning, Feature Importance analysis, and Grid Search optimization.
-    </p>
-    <a href="https://github.com/Ahmxd-ui/titanic-survivor-prediction" class="project-link" target="_blank">View Code</a>
-</div>
-
-                <!--<div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Second project not ready yet.</p>
-                    <a href="#" class="project-link">View Project</a>
+                
+                <div class="project-card">
+                    <h3>Titanic Survival Prediction 🚢</h3>
+                    <p>
+                        Built a production-ready ML pipeline achieving <strong>83.3% accuracy</strong>. 
+                        Features automated data cleaning, Feature Importance analysis, and Grid Search hyperparameter tuning.
+                    </p>
+                    <a href="https://github.com/Ahmxd-ui/titanic-survivor-prediction" class="project-link" target="_blank">View Code</a>
                 </div>
 
                 <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>Third project not ready yet.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <h3>Credit Card Fraud Detection 💳</h3>
+                    <p>
+                        Developed an <strong>Unsupervised Anomaly Detection</strong> system using Isolation Forest. 
+                        Achieved <strong>65% Recall</strong> on 280k+ transactions without using any labeled training data.
+                    </p>
+                    <a href="https://github.com/Ahmxd-ui/credit_card_fraud_project" class="project-link" target="_blank">View Code</a>
                 </div>
-            </div> -->
+
+            </div>
         </section>
 
         <section>
             <h2>Contact</h2>
-            <p style="text-align: center; margin-bottom: 20px;">
+            <p style="text-align: center; margin-bottom: 20px; color: #b0b0b0;">
                 Let's connect! Feel free to reach out for collaboration or opportunities.
             </p>
             <p class="email-text" style="text-align: center;">
@@ -363,7 +311,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Ahmad Haydar. All rights reserved.</p>
+        <p>&copy; 2026 Ahmad Haydar. All rights reserved.</p>
     </footer>
 </body>
 </html>
