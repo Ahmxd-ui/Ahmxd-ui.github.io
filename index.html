@@ -30,7 +30,7 @@
             left: 0;
             width: 100%;
             padding: 15px 10%;
-            background: rgba(15, 32, 39, 0.95); /* Matches dark theme */
+            background: rgba(15, 32, 39, 0.95);
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
@@ -65,6 +65,7 @@
 
         .nav-links a:hover {
             color: #00c6ff;
+            text-shadow: 0 0 10px rgba(0, 198, 255, 0.8); /* Text Glow */
         }
 
         /* --- CONTAINER & SECTIONS --- */
@@ -72,7 +73,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            padding-top: 100px; /* Offset for fixed navbar */
+            padding-top: 100px;
         }
 
         header {
@@ -121,7 +122,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
             animation: fadeInUp 0.8s ease-out backwards;
-            scroll-margin-top: 100px; /* Keeps section title visible under nav */
+            scroll-margin-top: 100px;
         }
 
         section:nth-of-type(1) { animation-delay: 0.2s; }
@@ -138,6 +139,22 @@
             display: inline-block;
         }
 
+        /* --- ELECTRIC GLOW ANIMATION --- */
+        @keyframes electricGlow {
+            0% {
+                box-shadow: 0 0 5px #00c6ff, 0 0 10px #00c6ff;
+                border-color: #00c6ff;
+            }
+            50% {
+                box-shadow: 0 0 20px #00c6ff, 0 0 40px #0072ff;
+                border-color: #fff;
+            }
+            100% {
+                box-shadow: 0 0 5px #00c6ff, 0 0 10px #00c6ff;
+                border-color: #00c6ff;
+            }
+        }
+
         /* --- PROJECTS GRID --- */
         .projects-grid {
             display: grid;
@@ -150,15 +167,18 @@
             background: rgba(255, 255, 255, 0.05);
             padding: 25px;
             border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
             animation: fadeInUp 0.6s ease-out backwards;
+            position: relative;
         }
 
+        /* APPLY ELECTRIC LOOK ON HOVER */
         .project-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 198, 255, 0.2);
-            border-color: #00c6ff;
+            /* This animation creates the pulsing neon effect */
+            animation: electricGlow 1.5s infinite alternate; 
+            z-index: 10;
         }
 
         .project-card h3 {
@@ -185,7 +205,7 @@
 
         .project-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 198, 255, 0.4);
+            box-shadow: 0 0 15px #00c6ff; /* Simple glow for button */
         }
 
         /* --- SKILLS --- */
@@ -211,6 +231,7 @@
             background: #00c6ff;
             color: #fff;
             transform: scale(1.1);
+            box-shadow: 0 0 15px #00c6ff; /* Electric glow */
         }
 
         /* Staggered animation */
@@ -247,8 +268,10 @@
 
         .contact-btn:hover {
             background: #00c6ff;
-            box-shadow: 0 0 20px rgba(0, 198, 255, 0.6);
+            /* Strong electric glow on hover */
+            box-shadow: 0 0 20px #00c6ff, 0 0 40px #0072ff; 
             transform: translateY(-3px);
+            border-color: #fff;
         }
 
         .email-text {
@@ -286,7 +309,7 @@
             
             .navbar { padding: 15px 20px; flex-direction: column; gap: 10px; }
             .nav-links { gap: 15px; font-size: 0.9em; }
-            .container { padding-top: 140px; } /* More padding for taller mobile nav */
+            .container { padding-top: 140px; }
         }
     </style>
 </head>
