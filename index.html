@@ -11,23 +11,71 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #e0e0e0; /* Light text for dark mode */
-            /* Dark Tech Gradient Background */
+            color: #e0e0e0;
             background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             min-height: 100vh;
         }
 
+        /* --- NAVBAR STYLES --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 10%;
+            background: rgba(15, 32, 39, 0.95); /* Matches dark theme */
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #b0b0b0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00c6ff;
+        }
+
+        /* --- CONTAINER & SECTIONS --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            padding-top: 100px; /* Offset for fixed navbar */
         }
 
         header {
-            /* Glassmorphism Dark Effect */
             background: rgba(30, 30, 40, 0.7);
             backdrop-filter: blur(10px);
             padding: 60px 40px;
@@ -41,7 +89,6 @@
 
         h1 {
             font-size: 3em;
-            /* Neon Blue Gradient Text */
             background: linear-gradient(to right, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -74,6 +121,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
             animation: fadeInUp 0.8s ease-out backwards;
+            scroll-margin-top: 100px; /* Keeps section title visible under nav */
         }
 
         section:nth-of-type(1) { animation-delay: 0.2s; }
@@ -90,6 +138,7 @@
             display: inline-block;
         }
 
+        /* --- PROJECTS GRID --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -139,6 +188,7 @@
             box-shadow: 0 5px 15px rgba(0, 198, 255, 0.4);
         }
 
+        /* --- SKILLS --- */
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -163,7 +213,7 @@
             transform: scale(1.1);
         }
 
-        /* Staggered animation for skills */
+        /* Staggered animation */
         .skill-tag:nth-child(1) { animation-delay: 0.1s; }
         .skill-tag:nth-child(2) { animation-delay: 0.15s; }
         .skill-tag:nth-child(3) { animation-delay: 0.2s; }
@@ -173,6 +223,7 @@
         .skill-tag:nth-child(7) { animation-delay: 0.4s; }
         .skill-tag:nth-child(8) { animation-delay: 0.45s; }
 
+        /* --- CONTACT --- */
         .contact-links {
             display: flex;
             justify-content: center;
@@ -207,7 +258,7 @@
             margin-bottom: 20px;
         }
 
-        /* Animations remain the same */
+        /* --- ANIMATIONS --- */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
@@ -227,14 +278,30 @@
             font-size: 0.9em;
         }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
             header, section { padding: 30px 20px; }
             .projects-grid { grid-template-columns: 1fr; }
+            
+            .navbar { padding: 15px 20px; flex-direction: column; gap: 10px; }
+            .nav-links { gap: 15px; font-size: 0.9em; }
+            .container { padding-top: 140px; } /* More padding for taller mobile nav */
         }
     </style>
 </head>
 <body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">AH.</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <header>
             <h1>Ahmad Haydar</h1>
@@ -246,7 +313,7 @@
             </p>
         </header>
 
-        <section>
+        <section id="about">
             <h2>About Me</h2>
             <p>
                 As a Computer and Communications Network Engineering (CCNE) graduate, 
@@ -256,24 +323,32 @@
             </p>
         </section>
 
-        <section>
+        <section id="skills">
             <h2>Skills</h2>
             <div class="skills">
                 <span class="skill-tag">Python</span>
+                <span class="skill-tag">PyTorch</span>
                 <span class="skill-tag">Scikit-Learn</span>
                 <span class="skill-tag">Pandas / NumPy</span>
                 <span class="skill-tag">Unsupervised Learning</span>
-                <span class="skill-tag">Random Forest</span>
                 <span class="skill-tag">Computer Vision</span>
                 <span class="skill-tag">Git / GitHub</span>
                 <span class="skill-tag">Deep Learning</span>
             </div>
         </section>
 
-        <section>
+        <section id="projects">
             <h2>Projects</h2>
             <div class="projects-grid">
                 
+                <div class="project-card">
+                    <h3>Pneumonia Detection (CNN vs ResNet) 🩻</h3>
+                    <p>
+                        Deep Learning comparison using <strong>PyTorch</strong>. The Custom CNN outperformed ResNet18 with <strong>90.87% Accuracy</strong>. Crucially, it achieved higher <strong>Sensitivity</strong> (Recall), minimizing false negatives in patient diagnosis.
+                    </p>
+                    <a href="https://github.com/Ahmxd-ui/pneumonia-project" class="project-link" target="_blank">View Code</a>
+                </div>
+
                 <div class="project-card">
                     <h3>Titanic Survival Prediction 🚢</h3>
                     <p>
@@ -295,7 +370,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="contact">
             <h2>Contact</h2>
             <p style="text-align: center; margin-bottom: 20px; color: #b0b0b0;">
                 Let's connect! Feel free to reach out for collaboration or opportunities.
